@@ -34,7 +34,15 @@
     cursor: pointer;
 }
 
-.bought {
+.mini{ 
+    transform: scale(0.8);
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0.2em;
+    margin: 0 0.5em;
+}
+
+.done {
     text-decoration: line-through;
 }
 
@@ -42,6 +50,14 @@
     position: absolute;
     margin-bottom: 0.5em;
     bottom: 0;
+    left: 1em;
+}
+
+#completeBtn {
+        position: absolute;
+        margin-bottom: 0.5em;
+        bottom: 0;
+        right: 1em;
 }
 
 #input {

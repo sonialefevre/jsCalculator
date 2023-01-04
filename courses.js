@@ -62,7 +62,7 @@ function handleBuy(event) {
   event.target.classList.toggle("bought");
 }
 
-function handleClick() {
+function handleClick(event) {
   let elem = document.createElement("li");
   elem.innerText = qty + " " + item;
   elem.addEventListener("click", handleBuy);
@@ -79,6 +79,12 @@ function handleClear() {
 inputField.addEventListener("change", handleChange);
 inputSlct.addEventListener("change", handleSetQty);
 inputBtn.addEventListener("click", handleClick);
+inputField.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault;
+    handleClick();
+  }
+});
 clearBtn.addEventListener("click", handleClear);
 
 window.addEventListener("DOMContentLoaded", (event) => {
