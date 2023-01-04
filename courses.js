@@ -14,6 +14,20 @@ inputField.setAttribute("name", "input");
 inputField.setAttribute("placeholder", "Que voulez-vous acheter ?");
 container.appendChild(inputField);
 
+//Adding a select for quantities
+let inputSlct = document.createElement("select");
+inputSlct.innerHTML = '<select name="select" id="select"></select>';
+inputSlct.id = "select";
+container.appendChild(inputSlct);
+let option = document.createElement("option");
+option.innerHTML = `<option value="">--</option>`;
+inputSlct.appendChild(option);
+for (let i = 1; i <= 10; i++) {
+  let qtySlct = document.createElement("option");
+  qtySlct.innerHTML = `<option value="${i}">${i}</option>`;
+  inputSlct.appendChild(qtySlct);
+}
+
 //Adding input button
 let inputBtn = document.createElement("button");
 inputBtn.innerText = "Ajouter";
@@ -33,22 +47,29 @@ clearBtn.className = "button";
 container.appendChild(clearBtn);
 
 let item;
+let qty = 1;
 
 function handleChange(event) {
   item = event.target.value;
 }
 
-function handleRemove(event) {
-  event.target.remove();
+function handleSetQty(event) {
+  qty = event.target.value;
+  console.log(qty);
+}
+
+function handleBuy(event) {
+  event.target.classList.toggle("bought");
 }
 
 function handleClick() {
   let elem = document.createElement("li");
-  elem.innerText = item;
-  elem.addEventListener("click", handleRemove);
+  elem.innerText = qty + " " + item;
+  elem.addEventListener("click", handleBuy);
   listElm.appendChild(elem);
   inputField.value = "";
   item = null;
+  qty = null;
 }
 
 function handleClear() {
@@ -56,5 +77,10 @@ function handleClear() {
 }
 
 inputField.addEventListener("change", handleChange);
+inputSlct.addEventListener("change", handleSetQty);
 inputBtn.addEventListener("click", handleClick);
 clearBtn.addEventListener("click", handleClear);
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded");
+});

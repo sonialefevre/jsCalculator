@@ -4,11 +4,20 @@
 
 #container {
     background-color: #ffc;
-    width: 18em;
+    width: 22em;
     min-height: 20em;
     padding: 1em;
     box-shadow: 10px 5px 5px #A5A5A5;
     position: relative;
+}
+
+#select {
+    position: absolute;
+    right: 9em;
+    top: 2.5em;
+    background-color: rgb(255, 255, 158);
+    border-radius: 5px;
+
 }
 
 .button {
@@ -23,6 +32,10 @@
 .button:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+
+.bought {
+    text-decoration: line-through;
 }
 
 #clearBtn {
